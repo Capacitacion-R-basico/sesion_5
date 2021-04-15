@@ -601,7 +601,6 @@ Nombres de mujer más populares de 2019
 
 top10 <- guaguas %>% 
   filter(anio == 2019 & sexo == "F") %>% 
-  group_by(sexo) %>% 
   arrange(desc(n)) %>% 
   slice(1:10)
 ggplot(top10, aes(x = nombre, y = n, fill = nombre)) + #<<
@@ -621,7 +620,6 @@ Para ordenar de mayor a menor, puedo usar `fct_reorder`
 ```{r, fig.align='center', fig.height=4.5, fig.width=7}
 top10 <- guaguas %>% 
   filter(anio == 2019 & sexo == "F") %>% 
-  group_by(sexo) %>% 
   arrange(desc(n)) %>% 
   slice(1:10)
 ggplot(top10, aes(x = fct_reorder(nombre, desc(n)) , y = n, fill = nombre)) + #<<

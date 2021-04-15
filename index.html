@@ -4,7 +4,7 @@
     <title>Capacitación en R y herramientas de productividad</title>
     <meta charset="utf-8" />
     <meta name="author" content="" />
-    <meta name="date" content="2021-04-06" />
+    <meta name="date" content="2021-04-15" />
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -637,7 +637,6 @@ Nombres de mujer más populares de 2019
 ```r
 top10 &lt;- guaguas %&gt;% 
   filter(anio == 2019 &amp; sexo == "F") %&gt;% 
-  group_by(sexo) %&gt;% 
   arrange(desc(n)) %&gt;% 
   slice(1:10)
 *ggplot(top10, aes(x = nombre, y = n, fill = nombre)) +
@@ -660,7 +659,6 @@ Para ordenar de mayor a menor, puedo usar `fct_reorder`
 ```r
 top10 &lt;- guaguas %&gt;% 
   filter(anio == 2019 &amp; sexo == "F") %&gt;% 
-  group_by(sexo) %&gt;% 
   arrange(desc(n)) %&gt;% 
   slice(1:10)
 *ggplot(top10, aes(x = fct_reorder(nombre, desc(n)) , y = n, fill = nombre)) +
